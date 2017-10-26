@@ -5,7 +5,7 @@ const BrowserWindow = electron.BrowserWindow
 const {Menu} = electron
 
 app.on('ready', _ => {
-    console.log('ready')    
+    console.log('ready')
     let win = new BrowserWindow({
         height: 400,
         width: 400})
@@ -23,7 +23,7 @@ app.on('ready', _ => {
             }, {
                 label: 'Quit',
                 click: _ => { app.quit() },
-                accelerator: 'Ctrl+q'
+                accelerator: 'CommandOrControl+q'
             }, {
                 label: 'Minimize',
                 role: 'minimize'
