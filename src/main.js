@@ -14,8 +14,30 @@ app.on('ready', _ => {
         const template = [{
             label: name,
             submenu: [{
-                label: `About ${name}`
+                label: `About ${name}`,
+                click: _ => {
+                    console.log('about clicked!')
+                }
+            }, {
+                type: 'separator'
+            }, {
+                label: 'Quit',
+                click: _ => { app.quit() },
+                accelerator: 'Ctrl+q'
+            }, {
+                label: 'Minimize',
+                role: 'minimize'
             }]
+        }, {
+            label: 'Toggle full screen',
+            role: 'togglefullscreen'
+        }, {
+            label: 'isZoomed',
+            type: 'checkbox'
+        },
+        {
+            label: 'Learn More',
+            click () { require('electron').shell.openExternal('https://electron.atom.io') }
         }]
         const menu = Menu.buildFromTemplate(template)
         Menu.setApplicationMenu(menu);
